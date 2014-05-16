@@ -20,6 +20,7 @@ group :development do
   gem 'binding_of_caller'
 end
 
+gem 'ejs'
 gem 'jquery-ui-rails'
 gem 'backbone-on-rails'
 gem 'rake', '10.1.1'

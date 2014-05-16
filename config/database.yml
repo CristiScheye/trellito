@@ -1,13 +1,13 @@
 development:
   adapter: sqlite3
-  database: db/trellino_development
+  database: db/Trellito_development
   host: localhost
   pool: 5
   timeout: 5000
 
 test:
   adapter: sqlite3
-  database: db/trellino_test
+  database: db/Trellito_test
   host: localhost
   pool: 5
   timeout: 5000
