@@ -4,7 +4,14 @@ window.Trellito = {
   Views: {},
   Routers: {},
   initialize: function() {
-    alert('Hello from Backbone!');
+    var $rootEl = $('#content');
+    this.boards = new Trellito.Collections.Boards();
+
+    new Trellito.Routers.AppRouter({
+      boards: this.boards,
+      $rootEl: $rootEl
+    });
+    Backbone.history.start();
   }
 };
 

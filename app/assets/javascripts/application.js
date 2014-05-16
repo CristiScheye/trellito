@@ -13,10 +13,11 @@
 //= require jquery
 //= require jquery_ujs
 //= require jquery.ui.all
+//= require serializeJSON
 //= require underscore
 //= require backbone
-//= require trellito
 //= require bootstrap
+//= require trellito
 //= require_tree ../templates
 //= require_tree ./models
 //= require_tree ./collections
