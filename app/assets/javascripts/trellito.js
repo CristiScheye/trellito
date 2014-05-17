@@ -7,7 +7,7 @@ window.Trellito = {
     var $rootEl = $('#content');
     this.boards = new Trellito.Collections.Boards();
 
-    new Trellito.Routers.AppRouter({
+    this.router = new Trellito.Routers.AppRouter({
       boards: this.boards,
       $rootEl: $rootEl
     });

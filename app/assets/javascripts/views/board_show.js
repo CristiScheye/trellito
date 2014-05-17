@@ -20,7 +20,7 @@ window.Trellito.Views.BoardShowView = Backbone.CompositeView.extend({
     var boardListView = new Trellito.Views.BoardListView({
       model: list
     });
-    this.addSubview('#board-list', boardListView);
+    this.addSubview('#board-lists', boardListView);
   },
 
   render: function() {

@@ -9,6 +9,6 @@ window.Trellito.Views.BoardsIndexView = Backbone.View.extend({
     return this;
   },
   initialize: function() {
-    this.listenTo(this.collection, 'sync', this.render);
+    this.listenTo(this.collection, 'sync add', this.render);
   },
 })

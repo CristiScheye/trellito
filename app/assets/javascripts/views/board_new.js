@@ -10,15 +10,16 @@ window.Trellito.Views.NewBoardView = Backbone.View.extend({
     'submit form#new-board' : 'submit'
   },
   submit: function(event) {
-    var view = this;
     event.preventDefault();
     var boardArrs = $(event.target).serializeJSON()['board'];
-    var board = new Trellito.Models.Board(boardArrs)
-    board.save({},{
-      success: function() {
-        Trellito.boards.add(board);
-        view.render();
-      }
-    })
+
+    Trellito.boards.create(boardArrs, {
+      success: function(res) {
+        Trellito.router.navigate('/boards/' + res.get('id'), {
+          trigger: true
+        });
+      },
+      wait: true
+    });
   }
-})
+});
