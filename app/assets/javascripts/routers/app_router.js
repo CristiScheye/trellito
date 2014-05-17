@@ -1,6 +1,8 @@
 window.Trellito.Routers.AppRouter = Backbone.Router.extend({
   routes: {
-    '' : 'boardsIndex'
+    '' : 'index',
+    'boards/:id' : 'show'
+
   },
 
   initialize: function(options) {
@@ -8,7 +10,7 @@ window.Trellito.Routers.AppRouter = Backbone.Router.extend({
     this.boards = options.boards;
   },
 
-  boardsIndex: function() {
+  index: function() {
     this.boards.fetch();
     var boardsIndexView = new Trellito.Views.BoardsIndexView({
       collection: this.boards
@@ -16,7 +18,22 @@ window.Trellito.Routers.AppRouter = Backbone.Router.extend({
 
     var newBoardView = new Trellito.Views.NewBoardView();
 
-    this.$rootEl.html(boardsIndexView.render().el);
+    this._swapView(boardsIndexView);
     this.$rootEl.append(newBoardView.render().el)
+  },
+
+  show: function(id) {
+    var board = this.boards.getOrFetch(id);
+    var boardShowView = new Trellito.Views.BoardShowView({
+      model: board
+    })
+
+    this._swapView(boardShowView);
+  },
+
+  _swapView: function(view) {
+    this.currentView && this.currentView.remove();
+    this.currentView = view;
+    this.$rootEl.html(view.render().el);
   }
 })
