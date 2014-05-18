@@ -15,11 +15,12 @@ window.Trellito.Models.Board = Backbone.Model.extend({
   },
 
   parse: function(res) {
-    this.lists().add(res['lists']);
+    this.lists().set(res['lists']);
     delete res['lists'];
 
-    this.members().add(res['members']);
+    this.members().set(res['members']);
     delete res['members'];
+
     return res
   }
 });

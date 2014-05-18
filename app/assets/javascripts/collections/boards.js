@@ -6,9 +6,10 @@ window.Trellito.Collections.Boards = Backbone.Collection.extend({
 
     if(!board) {
       board = new Trellito.Models.Board({ 'id' : id })
-      board.fetch();
       this.add(board);
     }
+
+    board.fetch();
 
     return board;
   }

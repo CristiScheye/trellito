@@ -8,10 +8,18 @@ window.Trellito.Views.NewMemberView = Backbone.View.extend({
   events: {
     'submit #new-board-member': 'handleAddMember'
   },
+  initialize: function(options) {
+    this.board = options.board
+  },
   handleAddMember: function(event) {
     event.preventDefault();
+
     var data = $(event.target).serializeJSON();
-    data.board = this.model.toJSON();
-    this.model.save(data);
+    data.board = this.board.toJSON();
+    this.board.save(data, {
+      success: function(model, response) {
+        // debugger;
+      }
+    });
   }
 })
