@@ -26,7 +26,7 @@ window.Trellito.Routers.AppRouter = Backbone.Router.extend({
     var board = this.boards.getOrFetch(id);
     var boardShowView = new Trellito.Views.BoardShowView({
       model: board
-    })
+    });
 
     this._swapView(boardShowView);
   },
