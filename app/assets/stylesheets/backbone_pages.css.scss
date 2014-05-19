@@ -22,7 +22,21 @@
 
   form {
     clear: both;
+    color: black;
   }
+
+  h4 {
+    color: black;
+  }
+
+}
+
+button.new-form {
+  background-color: gray;
+}
+
+btn {
+  color: white;
 }
 
 
@@ -66,3 +80,4 @@
     border-radius: 3px;
   }
 }
+

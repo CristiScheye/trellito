@@ -27,6 +27,20 @@ window.Trellito.Views.BoardShowView = Backbone.CompositeView.extend({
     this.addSubview('#new-board-member', newMemberView);
   },
 
+
+  events: {
+    'click button#show-new-member-form' : 'showNewMemberForm',
+    'click button#show-new-list-form' : 'showNewListForm',
+  },
+
+  showNewListForm: function() {
+    $('#new-list-modal').modal();
+  },
+
+  showNewMemberForm: function() {
+    $('#new-member-modal').modal();
+  },
+
   addList: function(list) {
     var boardListView = new Trellito.Views.BoardListView({
       model: list

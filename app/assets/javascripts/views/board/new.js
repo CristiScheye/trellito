@@ -15,6 +15,8 @@ window.Trellito.Views.NewBoardView = Backbone.View.extend({
 
     Trellito.boards.create(boardArrs, {
       success: function(res) {
+        view.hideModal('#new-board-modal')
+
         Trellito.router.navigate('/boards/' + res.get('id'), {
           trigger: true
         });

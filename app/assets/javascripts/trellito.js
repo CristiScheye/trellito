@@ -20,6 +20,14 @@ $(document).ready(function(){
   Trellito.initialize();
 });
 
+Backbone.View = Backbone.View.extend({
+  hideModal: function(selector) {
+    $(selector).modal('hide');
+    $('body').removeClass('modal-open');
+    $('.modal-backdrop').remove();
+  }
+})
+
 
 Backbone.CompositeView = Backbone.View.extend({
   subviews: function(selector) {

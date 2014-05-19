@@ -1,7 +1,14 @@
 <div class="row">
+  <div class="col-x-2">
+    <button
+      class="btn board new-form"
+      id="new-board">
+    + New Board
+    </button>
+  </div>
   <% boards.each(function(board) { %>
     <div class="col-xs-2">
-      <a class="btn btn-primary board" href="#/boards/<%= board.escape('id') %>">
+      <a class="btn board" href="#/boards/<%= board.escape('id') %>">
         <%= board.escape('title')%>
       </a>
     </div>

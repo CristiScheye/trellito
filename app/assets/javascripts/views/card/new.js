@@ -20,7 +20,6 @@ window.Trellito.Views.NewCardView = Backbone.View.extend({
     event.preventDefault();
     var view = this;
     var cardAttrs = $(event.target).serializeJSON()['card'];
-    debugger;
     this.list.cards().create(cardAttrs, {
       success: function() {
         view.render();

@@ -1,11 +1,35 @@
-<form id="new-board-list">
-  <input type="hidden" name="list[board_id]" value="<%= board_id %>">
-  <label>Title
-    <input type="text" name="list[title]">
-  </label>
+<div class="modal fade" id="new-list-modal" tabindex="-1" role="dialog" aria-labelledby="newListHeader"  aria-hidden="true">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
 
-  <label>Rank
-    <input type="text" name="list[rank]">
-  </label>
-  <input type="submit" value="Make New List" class="btn">
-</form>
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 id="newListHeader">Create New List</h4>
+      </div>
+
+      <form id="new-board-list">
+        <input type="hidden" name="list[board_id]" value="<%= board_id %>">
+
+        <div class="modal-body">
+
+          <div class="form-group">
+            <label>Title
+              <input type="text" name="list[title]" class="form-control">
+            </label>
+          </div>
+
+          <div class="form-group">
+            <label>Rank
+              <input type="text" name="list[rank]" class="form-control">
+            </label>
+          </div>
+        </div>
+
+
+        <div class="modal-footer">
+          <input type="submit" value="Make New List" class="btn btn-primary">
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

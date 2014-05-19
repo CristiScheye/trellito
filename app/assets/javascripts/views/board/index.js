@@ -11,4 +11,12 @@ window.Trellito.Views.BoardsIndexView = Backbone.View.extend({
   initialize: function() {
     this.listenTo(this.collection, 'sync add', this.render);
   },
+
+  events: {
+    'click button#new-board' : 'showNewBoardForm'
+  },
+
+  showNewBoardForm: function() {
+    $('#new-board-modal').modal();
+  }
 })

@@ -7,8 +7,6 @@ window.Trellito.Models.List = Backbone.Model.extend({
     return this._cards;
   },
 
-  urlRoot: '/api/lists',
-
   parse: function(res) {
     this.cards().set(res['cards']);
     delete res['cards'];

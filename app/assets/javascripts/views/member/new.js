@@ -13,12 +13,13 @@ window.Trellito.Views.NewMemberView = Backbone.View.extend({
   },
   handleAddMember: function(event) {
     event.preventDefault();
+    var view = this;
 
     var data = $(event.target).serializeJSON();
     data.board = this.board.toJSON();
     this.board.save(data, {
       success: function() {
-        alert("successfully saved board?")
+        view.hideModal('#new-member-modal');
       }
     });
   }
