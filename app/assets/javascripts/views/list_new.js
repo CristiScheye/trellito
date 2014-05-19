@@ -18,7 +18,7 @@ window.Trellito.Views.NewListView = Backbone.View.extend({
 
     var view = this;
     var listAttrs = $(event.target).serializeJSON()['list']
-    this.model.lists().create(listAttrs, {
+    this.board.lists().create(listAttrs, {
       success: function() {
         view.render();
       },

@@ -1,5 +1,5 @@
 window.Trellito.Views.BoardListView = Backbone.View.extend({
-  template: JST['boards/list_show'],
+  template: JST['boards/_list'],
   render: function() {
     var content = this.template({
       list: this.model

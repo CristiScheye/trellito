@@ -1,5 +1,5 @@
 window.Trellito.Views.BoardMemberView = Backbone.View.extend({
-  template: JST['boards/member'],
+  template: JST['boards/_member'],
   render: function() {
     var content = this.template({
       member: this.model

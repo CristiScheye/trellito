@@ -35,7 +35,6 @@ window.Trellito.Views.BoardShowView = Backbone.CompositeView.extend({
   },
 
   addMember: function(member) {
-    debugger;
     var boardMemberView = new Trellito.Views.BoardMemberView({
       model: member
     });
