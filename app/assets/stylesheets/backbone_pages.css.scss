@@ -11,6 +11,14 @@
   input[type=text] {
     color: black;
   }
+
+  h2 {
+    float: left;
+  }
+
+  form {
+    clear: both;
+  }
 }
 
 #lists {
@@ -25,11 +33,19 @@
 }
 
 #members {
+
+  #board-members {
+    margin: 10px;
+    padding: 5px;
+  }
+
   .member {
     background-color: #65C665;
     border: solid #319331 1px;
-    margin: 5px;
+    margin: 10px;
+    padding: 5px;
   }
+
   .btn {
     background-color: #319331;
   }
