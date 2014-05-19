@@ -1,7 +1,9 @@
-<h1>Index</h1>
-
-<ul>
+<div class="row">
   <% boards.each(function(board) { %>
-    <li><a href="#/boards/<%= board.escape('id') %>"><%= board.escape('title')%></a></li>
+    <div class="col-xs-2">
+      <a class="btn btn-primary board" href="#/boards/<%= board.escape('id') %>">
+        <%= board.escape('title')%>
+      </a>
+    </div>
   <% }) %>
-</ul>
+</div>

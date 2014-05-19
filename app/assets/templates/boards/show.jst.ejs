@@ -1,9 +1,23 @@
-<h1><%= board.escape('title') %></h1>
+<div class="board">
+  <h1><%= board.escape('title') %></h1>
 
-Board Members:
-<ul id="board-members"></ul>
-<div id="new-board-member"></div>
+  <div id="members" class="container">
+    <div class="row">
+      <div class="col-xs-3">
+        <h2>Board Members</h2>
+      </div>
+      <div class="col-xs-8 col-xs-offset-1">
+        <div id="new-board-member"></div>
+      </div>
+    </div>
 
-Lists:
-<ul id="board-lists"></ul>
-<div id="new-board-list"></div>
+    <div id="board-members" class="row"></div>
+  </div>
+
+  <br>
+
+  <div id="lists" class="container">
+    <div id="board-lists" class="row"></div>
+    <div id="new-board-list"></div>
+  </div>
+</div>

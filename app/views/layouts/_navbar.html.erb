@@ -1,0 +1,17 @@
+<nav class="navbar navbar-default">
+  <div class="container">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">Trellito</a>
+    </div>
+    <ul class="nav navbar-right">
+      <li>
+        <% if logged_in? %>
+          <%= button_to "Log out", session_url, {
+            method: :delete,
+            class: "btn btn-xs btn-warning"
+          } %>
+        <% end %>
+      </li>
+    </ul>
+  </div>
+</nav>

@@ -1,0 +1,34 @@
+.board {
+  background-color: #1E6D74;
+  border: solid #015C65 2px;
+  padding: 10px;
+  margin: 20px;
+  min-height: 50px;
+  min-width: 100px;
+  float: left;
+
+  h1 {
+    color: #5EC4CD;
+  }
+
+  h2 {
+    color: #5EC4CD;
+  }
+}
+
+#lists {
+  .list-item {
+    background-color: #66E275;
+    border: solid #259433 1px;
+    margin-bottom: 5px;
+    color: #008110 ;
+  }
+}
+
+#members {
+  .member {
+    background-color: white;
+    border: solid #015C65 1px;
+    margin: 5px;
+  }
+}
