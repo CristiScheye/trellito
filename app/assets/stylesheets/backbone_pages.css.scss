@@ -1,34 +1,32 @@
 .board {
-  background-color: #1E6D74;
-  border: solid #015C65 2px;
+  background-color: #3C7575;
+  border: solid #246E6E 2px;
   padding: 10px;
   margin: 20px;
   min-height: 50px;
   min-width: 100px;
   float: left;
-
-  h1 {
-    color: #5EC4CD;
-  }
-
-  h2 {
-    color: #5EC4CD;
-  }
+  color: white;
 }
 
 #lists {
   .list-item {
-    background-color: #66E275;
-    border: solid #259433 1px;
+    background-color: #637AB0;
+    border: solid #2E457B 1px;
     margin-bottom: 5px;
-    color: #008110 ;
+  }
+  .btn {
+    background-color: #2E457B;
   }
 }
 
 #members {
   .member {
-    background-color: white;
-    border: solid #015C65 1px;
+    background-color: #65C665;
+    border: solid #319331 1px;
     margin: 5px;
+  }
+  .btn {
+    background-color: #319331;
   }
 }
