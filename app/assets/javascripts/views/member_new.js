@@ -17,8 +17,8 @@ window.Trellito.Views.NewMemberView = Backbone.View.extend({
     var data = $(event.target).serializeJSON();
     data.board = this.board.toJSON();
     this.board.save(data, {
-      success: function(model, response) {
-        // debugger;
+      success: function() {
+        alert("successfully saved board?")
       }
     });
   }

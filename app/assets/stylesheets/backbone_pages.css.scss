@@ -7,6 +7,10 @@
   min-width: 100px;
   float: left;
   color: white;
+
+  input[type=text] {
+    color: black;
+  }
 }
 
 #lists {
