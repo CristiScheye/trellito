@@ -1,4 +1,5 @@
-<form id="new-card">
+<form id="new-list-card">
+  <input type="hidden" name="card[list_id]" value="<%= list_id %>">
   <label>Title
     <input type="text" name="card[title]">
   </label>
@@ -9,6 +10,6 @@
 
   <label>Description
     <textarea></textarea>
-  </label
+  </label>
   <input type="submit" value="Add Card" class="btn">
 </form>
