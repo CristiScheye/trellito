@@ -15,7 +15,7 @@ window.Trellito.Models.Board = Backbone.Model.extend({
   },
 
   parse: function(res) {
-    this.lists().set(res['lists']);
+    this.lists().set(res['lists'], { parse: true });
     delete res['lists'];
 
     this.members().set(res['members']);

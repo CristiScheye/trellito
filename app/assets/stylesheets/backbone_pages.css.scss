@@ -21,16 +21,6 @@
   }
 }
 
-#lists {
-  .list-item {
-    background-color: #637AB0;
-    border: solid #2E457B 1px;
-    margin-bottom: 5px;
-  }
-  .btn {
-    background-color: #2E457B;
-  }
-}
 
 #members {
 
@@ -48,5 +38,27 @@
 
   .btn {
     background-color: #319331;
+  }
+}
+
+#lists {
+  .list-item {
+    background-color: #637AB0;
+    border: solid #2E457B 1px;
+    margin-bottom: 5px;
+    border-radius: 5px;
+  }
+  .btn {
+    background-color: #2E457B;
+  }
+}
+
+#cards {
+  .card {
+    background-color: #B6C2DF;
+    border: solid black 1px;
+    margin: 2px;
+    color: black;
+    border-radius: 3px;
   }
 }
