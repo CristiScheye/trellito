@@ -15,6 +15,18 @@ window.Trellito.Views.BoardListView = Backbone.CompositeView.extend({
     this.addSubview('#new-card', newCardView)
   },
 
+  events: {
+    'click .remove-list' : 'removeList'
+  },
+
+  removeList: function(event) {
+    debugger;
+    // var list_id = $(event.target).attr('data-id');
+    // var list = this.model.destroy({'id' : list_id});
+    var boardLists = this.model.collection;
+    boardLists.remove(this.model);
+  },
+
   addCard: function(card) {
     var cardView = new Trellito.Views.ListCardView({
       model: card

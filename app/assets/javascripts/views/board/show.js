@@ -5,6 +5,7 @@ window.Trellito.Views.BoardShowView = Backbone.CompositeView.extend({
     this.listenTo(this.model, 'sync', this.render);
     this.listenTo(this.model.lists(), 'add', this.addSortedLists);
     this.listenTo(this.model.members(), 'add', this.addMember);
+    this.listenTo(this.model.lists(), 'remove', this.removeList);
 
     /*lists*/
     this.model.lists().each(function(list) {
@@ -12,7 +13,7 @@ window.Trellito.Views.BoardShowView = Backbone.CompositeView.extend({
     }.bind(this));
 
     var newListView = new Trellito.Views.NewListView({
-      board: this.model
+      board: this.model,
     });
     this.addSubview('#new-board-list', newListView);
 
@@ -43,9 +44,16 @@ window.Trellito.Views.BoardShowView = Backbone.CompositeView.extend({
 
   addList: function(list) {
     var boardListView = new Trellito.Views.BoardListView({
-      model: list
+      model: list,
+      collection: this.model.lists()
     });
     this.addSubview('#board-lists', boardListView);
+  },
+
+  removeList: function(list) {
+    debugger;
+    this.removeSubview('#board-lists', list);
+    this.attachSubviews();
   },
 
   addSortedLists: function() {
