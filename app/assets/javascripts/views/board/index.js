@@ -6,6 +6,13 @@ window.Trellito.Views.BoardsIndexView = Backbone.View.extend({
     });
 
     this.$el.html(content);
+
+    $(function(){
+      $('#boards').disableSelection();
+      $('#boards').sortable({
+        items: 'a.board'
+      });
+    })
     return this;
   },
   initialize: function() {

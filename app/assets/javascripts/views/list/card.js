@@ -6,6 +6,7 @@ window.Trellito.Views.ListCardView = Backbone.View.extend({
       card: this.model
     });
     this.$el.html(content);
+
     return this;
   }
 })

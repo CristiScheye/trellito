@@ -63,6 +63,14 @@ window.Trellito.Views.BoardShowView = Backbone.CompositeView.extend({
     this.$el.html(content);
     this.attachSubviews();
 
+
+    $(function() {
+      $('div#board-lists').sortable({
+        items: '.list-item'
+      });
+      $('div#board-lists').disableSelection();
+    })
+
     return this;
   }
 
