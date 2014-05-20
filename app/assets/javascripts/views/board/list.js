@@ -3,7 +3,6 @@ window.Trellito.Views.BoardListView = Backbone.CompositeView.extend({
 
   initialize: function() {
     this.listenTo(this.model, 'sync', this.render);
-    this.listenTo(this.model.cards(), 'add', this.addCard);
     this.listenTo(this.model.cards(), 'add', this.addSortedCards);
 
     this.model.cards().each(function(card) {

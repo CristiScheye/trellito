@@ -3,7 +3,7 @@ window.Trellito.Views.BoardShowView = Backbone.CompositeView.extend({
 
   initialize: function() {
     this.listenTo(this.model, 'sync', this.render);
-    this.listenTo(this.model.lists(), 'add', this.addList);
+    this.listenTo(this.model.lists(), 'add', this.addSortedLists);
     this.listenTo(this.model.members(), 'add', this.addMember);
 
     /*lists*/
@@ -46,6 +46,13 @@ window.Trellito.Views.BoardShowView = Backbone.CompositeView.extend({
       model: list
     });
     this.addSubview('#board-lists', boardListView);
+  },
+
+  addSortedLists: function() {
+    this.removeSubviews('#board-lists');
+    this.model.lists().each(function(list) {
+      this.addList(list);
+    }.bind(this))
   },
 
   addMember: function(member) {
