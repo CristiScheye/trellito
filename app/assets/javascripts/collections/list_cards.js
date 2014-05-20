@@ -6,5 +6,9 @@ window.Trellito.Collections.ListCards = Backbone.Collection.extend({
 
   initialize: function(arr, options) {
     this.list = options.list;
+  },
+
+  comparator: function(card) {
+    return card.get('rank');
   }
 })

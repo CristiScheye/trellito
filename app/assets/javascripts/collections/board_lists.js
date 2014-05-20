@@ -5,5 +5,9 @@ window.Trellito.Collections.BoardLists = Backbone.Collection.extend({
   },
   initialize: function(arr, options) {
     this.board = options.board;
+  },
+
+  comparator: function(list) {
+    return list.get('rank');
   }
 })
