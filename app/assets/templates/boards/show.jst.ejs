@@ -1,20 +1,12 @@
-<div class="board well">
+<div class="well">
   <h1><%= board.escape('title') %></h1>
 
-  <div id="members" class="container">
-    <h2>Board Members</h2>
-    <div id="board-members" ></div>
+  <div class="row">
+  <div id="board-members"></div>
 
-    <button class="btn btn-primary" id="show-new-member-form">+ New Member</button>
-    <div id="new-board-member" class="row"></div>
-  </div>
-
-  <br>
-
-  <div id="lists" class="container">
+  <div id="lists">
+    <a class="btn btn-primary" id="show-new-list-form">+ New List</a>
     <div id="board-lists" ></div>
-
-    <button class="btn btn-primary" id="show-new-list-form">+ New List</button>
     <div id="new-board-list"></div>
   </div>
 </div>

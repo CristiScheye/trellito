@@ -20,13 +20,10 @@ module Api
     end
 
     def update
-      @board = current_user.boards.find(params[:id])
+      @board = Board.find(params[:id])
 
-      if params[:newMemberEmail]
-        email = params[:newMemberEmail]
-        new_member = User.find_by_email(email)
-        new_member && !@board.members.include?(new_member) && @board.members << new_member
-      end
+      #TODO make this more flexible so that users can be removed
+      @board.members << User.where(id: member_params[:member_ids]) unless member_params[:member_ids].empty?
 
       if @board.update_attributes(board_params)
         render partial: "api/boards/board", locals: { board: @board }
@@ -43,6 +40,10 @@ module Api
     private
     def board_params
       params.require(:board).permit(:title)
+    end
+
+    def member_params
+      params.require(:board).permit(member_ids: [])
     end
   end
 end

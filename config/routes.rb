@@ -13,6 +13,7 @@ Trellito::Application.routes.draw do
     end
     resources :todo_items, only: [:show, :update, :destroy]
     resources :card_assignments, only: :destroy
+    resources :users, only: [:index]
   end
 
   resource :session, only: [:new, :create, :destroy]

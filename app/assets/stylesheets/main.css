@@ -4,3 +4,11 @@
   float: left;
   margin: 20px;
 }
+
+.board-member {
+  background-color: #7a8288;
+  color: white;
+  padding: 3px 5px;
+  margin: 5px;
+  border-radius: 2px;
+}

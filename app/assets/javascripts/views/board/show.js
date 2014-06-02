@@ -4,7 +4,7 @@ window.Trellito.Views.BoardShowView = Backbone.CompositeView.extend({
   initialize: function() {
     this.listenTo(this.model, 'sync', this.render);
     this.listenTo(this.model.lists(), 'add', this.addSortedLists);
-    this.listenTo(this.model.members(), 'add', this.addMember);
+    this.listenTo(this.model.members(), 'add', this.render);
     this.listenTo(this.model.lists(), 'remove', this.removeList);
 
     /*lists*/
@@ -17,29 +17,21 @@ window.Trellito.Views.BoardShowView = Backbone.CompositeView.extend({
     });
     this.addSubview('#new-board-list', newListView);
 
-    /*members*/
-    this.model.members().each(function(member) {
-      this.addMember(member);
-    }.bind(this));
-
-    var newMemberView = new Trellito.Views.NewMemberView({
+    // members
+    var membersView = new Trellito.Views.MembersIndexView({
+      collection: this.model.members(),
       board: this.model
     });
-    this.addSubview('#new-board-member', newMemberView);
+    this.addSubview('#board-members', membersView);
   },
 
 
   events: {
-    'click button#show-new-member-form' : 'showNewMemberForm',
-    'click button#show-new-list-form' : 'showNewListForm',
+    'click #show-new-list-form' : 'showNewListForm',
   },
 
   showNewListForm: function() {
     $('#new-list-modal').modal();
-  },
-
-  showNewMemberForm: function() {
-    $('#new-member-modal').modal();
   },
 
   addList: function(list) {
@@ -51,7 +43,6 @@ window.Trellito.Views.BoardShowView = Backbone.CompositeView.extend({
   },
 
   removeList: function(list) {
-    debugger;
     this.removeSubview('#board-lists', list);
     this.attachSubviews();
   },
@@ -61,13 +52,6 @@ window.Trellito.Views.BoardShowView = Backbone.CompositeView.extend({
     this.model.lists().each(function(list) {
       this.addList(list);
     }.bind(this))
-  },
-
-  addMember: function(member) {
-    var boardMemberView = new Trellito.Views.BoardMemberView({
-      model: member
-    });
-    this.addSubview('#board-members', boardMemberView);
   },
 
   render: function() {

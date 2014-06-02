@@ -6,7 +6,9 @@ window.Trellito = {
   initialize: function() {
     var $rootEl = $('#content');
     this.boards = new Trellito.Collections.Boards();
-
+    this.users = new Trellito.Collections.Users();
+    this.users.fetch();
+    
     this.router = new Trellito.Routers.AppRouter({
       boards: this.boards,
       $rootEl: $rootEl

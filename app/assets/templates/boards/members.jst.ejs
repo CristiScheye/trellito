@@ -1,0 +1,41 @@
+<div class="modal fade" id="new-member-modal" tabindex="-1" role="dialog" aria-labelledby="newMemberHeader"  aria-hidden="true">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 id="newMemberHeader">Add New Member to Board</h4>
+      </div>
+
+      <form id="new-board-member">
+
+        <div class="modal-body">
+          <select multiple name="board[member_ids][]">
+            <% Trellito.users.forEach(function(user) { %>
+              <option value="<%= user.id %>"><%= user.escape('email') %></option>
+            <% }) %>
+          </select>
+        </div>
+
+        <div class="modal-footer">
+          <a class="btn btn-primary" data-dismiss="modal">Cancel</a>
+          <input type="submit" id="new-member-form" value="Add User to Board" class="btn btn-info">
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-xs-12">
+    <strong>Board Members</strong>
+      <% members.each(function(member) { %>
+        <span class="board-member">
+          <%= member.escape('email') %>
+          <!-- <a class="remove-member" data-id="<%= member.id %>">&times;</a> -->
+        </span>
+      <% }) %>
+      <a class="btn btn-info btn-xs" id="show-new-member-form">+ New Member</a>
+      <div id="new-board-member" class="row"></div>
+  </div>
+</div>
