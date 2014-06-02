@@ -6,20 +6,18 @@ window.Trellito.Views.NewBoardView = Backbone.View.extend({
     this.$el.html(content);
     return this;
   },
+
   events: {
-    'submit form#new-board' : 'submit'
+    'submit form#new-board' : 'submit',
   },
+
   submit: function(event) {
     event.preventDefault();
-    var boardArrs = $(event.target).serializeJSON()['board'];
-
-    Trellito.boards.create(boardArrs, {
-      success: function(res) {
-        view.hideModal('#new-board-modal')
-
-        Trellito.router.navigate('/boards/' + res.get('id'), {
-          trigger: true
-        });
+    var boardAttrs = $(event.target).serializeJSON()['board'];
+    var view = this;
+    Trellito.boards.create(boardAttrs, {
+      success: function(resp) {
+        Trellito.router.navigate('boards/' + resp.id, {trigger: true})
       },
       wait: true
     });

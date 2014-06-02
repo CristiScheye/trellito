@@ -1,17 +1,18 @@
 <div class="row">
-  <div class="col-x-2">
-    <button
-      class="btn btn-primary"
-      id="new-board">
-    + New Board
-    </button>
-  </div>
-
-  <div id="boards">
-    <% boards.each(function(board) { %>
-      <a class="btn btn-primary" href="#/boards/<%= board.escape('id') %>">
-          <%= board.escape('title')%>
-      </a>
-    <% }) %>
-  </div>
+  <a class="btn btn-primary" id="new-board">+ New Board</a>
 </div>
+
+  <br>
+
+<div class="row" id="boards">
+  <div class="col-xs-12">
+  <% boards.each(function(board) { %>
+    <div class="well board">
+      <a href="#/boards/<%= board.escape('id') %>">
+        <%= board.escape('title')%>
+      </a>
+    </div>
+  <% }) %>
+  <div id="new-board-form"></div>
+</div>
+

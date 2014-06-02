@@ -16,10 +16,7 @@ window.Trellito.Routers.AppRouter = Backbone.Router.extend({
       collection: this.boards
     });
 
-    var newBoardView = new Trellito.Views.NewBoardView();
-
     this._swapView(boardsIndexView);
-    this.$rootEl.append(newBoardView.render().el)
   },
 
   show: function(id) {
