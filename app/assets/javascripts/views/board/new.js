@@ -12,9 +12,9 @@ window.Trellito.Views.NewBoardView = Backbone.View.extend({
   },
 
   submit: function(event) {
+    var view = this;
     event.preventDefault();
     var boardAttrs = $(event.target).serializeJSON()['board'];
-    var view = this;
     Trellito.boards.create(boardAttrs, {
       success: function(resp) {
         Trellito.router.navigate('boards/' + resp.id, {trigger: true})

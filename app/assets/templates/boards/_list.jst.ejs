@@ -1,9 +1,21 @@
 <div class="list-item col-xs-3 col-xs-offset-1">
-  <h3>
-    <span class="rank"><%= list.escape('rank') %></span>:
-    <%= list.escape('title') %>
-    <button type="button" class="close remove-list" data-id="<%= list.id %>">&times;</button>
-  </h3>
-  <div id="cards"></div>
-  <div id='new-card'</div>
+  <div class="panel panel-info">
+    <div class="panel-heading">
+      <h4>
+        <%= list.escape('title') %>
+        <button type="button" class="close remove-list" data-id="<%= list.id %>">&times;</button>
+      </h4>
+    </div>
+    <div class="panel-body">
+      <div class="cards">
+        <ul>
+          <% cards.each(function(card) { %>
+            <li><%= card.escape('title') %></li>
+          <% }) %>
+        </ul>
+        <div id='new-card'></div>
+      </div>
+      <a id="add-card" class="btn btn-info btn-sm">+ New Card</a>
+    </div>
+  </div>
 </div>

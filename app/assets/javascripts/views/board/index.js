@@ -23,7 +23,7 @@ window.Trellito.Views.BoardsIndexView = Backbone.CompositeView.extend({
   },
 
   events: {
-    'click a#new-board' : 'addNewBoard'
+    'click #new-board' : 'addNewBoard'
   },
 
   addNewBoard: function () {

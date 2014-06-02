@@ -20,13 +20,12 @@ window.Trellito.Views.MembersIndexView = Backbone.View.extend({
     return this;
   },
   addMember: function (event) {
+    var view = this;
     event.preventDefault();
     var formAttrs = $(event.target).serializeJSON();
     this.board.save(formAttrs, {
       success: function (model) {
-        $('#new-member-modal').modal('hide');
-        $('body').removeClass('modal-open');
-        $('.modal-backdrop').remove();
+        view.hideModal('#new-member-modal');
       }
     });
   },

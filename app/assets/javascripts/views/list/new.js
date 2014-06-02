@@ -18,6 +18,7 @@ window.Trellito.Views.NewListView = Backbone.View.extend({
 
     var view = this;
     var listAttrs = $(event.target).serializeJSON()['list']
+    listAttrs.rank = this.board.lists().length + 1;
     this.board.lists().create(listAttrs, {
       success: function() {
         view.hideModal('#new-list-modal');
