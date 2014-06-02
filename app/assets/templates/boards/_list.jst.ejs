@@ -8,10 +8,11 @@
     </div>
     <div class="panel-body">
       <div class="cards">
-        <ul>
+        <ul class="list-cards">
           <% cards.each(function(card) { %>
-            <li>
-              <%= card.escape('title') %> <a class="remove-card btn btn-xs btn-default" data-id="<%= card.id %>">&times;</a>
+            <li class="card">
+              <%= card.escape('title') %>
+              <a class="remove-card btn btn-xs" data-id="<%= card.id %>">&times;</a>
             </li>
           <% }) %>
         </ul>

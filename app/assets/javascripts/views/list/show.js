@@ -43,11 +43,11 @@ window.Trellito.Views.BoardListView = Backbone.CompositeView.extend({
     this.attachSubviews();
 
     $(function() {
-      $('ul.cards').sortable({
-        items: 'li.card',
-        connectWith: 'ul.cards'
+      $('.cards').sortable({
+        items: '.card',
+        connectWith: '.cards'
       });
-      $('ul.cards').disableSelection();
+      $('.cards').disableSelection();
     })
 
     return this;

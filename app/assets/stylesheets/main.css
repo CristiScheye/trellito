@@ -12,3 +12,21 @@
   margin: 5px;
   border-radius: 2px;
 }
+
+ul.list-cards {
+  list-style: none;
+  padding-left: 0;
+}
+
+ul.list-cards  li {
+  background-color: #7a8288;
+  margin: 5px;
+  border-radius: 3px;
+  padding-left: 1em;
+}
+
+ul.list-cards a {
+  float: right;
+  border: none;
+  background-color: #7a8288;
+}
