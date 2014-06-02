@@ -3,12 +3,14 @@ window.Trellito.Views.BoardListView = Backbone.CompositeView.extend({
 
   initialize: function() {
     this.listenTo(this.model, 'sync', this.render);
-    this.listenTo(this.model.cards(), 'sync', this.render);
+    this.listenTo(this.model.cards(), 'add', this.render);
+    this.listenTo(this.model.cards(), 'remove', this.render);
   },
 
   events: {
     'click .remove-list' : 'removeList',
-    'click #add-card' : 'displayCardForm'
+    'click #add-card' : 'displayCardForm',
+    'click .remove-card' : 'removeCard',
   },
 
   displayCardForm: function () {
@@ -22,6 +24,13 @@ window.Trellito.Views.BoardListView = Backbone.CompositeView.extend({
 
   removeList: function(event) {
     this.model.destroy();
+  },
+
+
+  removeCard: function (event) {
+    var cardId = $(event.target).attr('data-id');
+    var card = this.model.cards().get(cardId);
+    card.destroy();
   },
 
   render: function() {

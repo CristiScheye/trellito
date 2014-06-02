@@ -10,7 +10,9 @@
       <div class="cards">
         <ul>
           <% cards.each(function(card) { %>
-            <li><%= card.escape('title') %></li>
+            <li>
+              <%= card.escape('title') %> <a class="remove-card btn btn-xs btn-default" data-id="<%= card.id %>">&times;</a>
+            </li>
           <% }) %>
         </ul>
         <div id='new-card'></div>
