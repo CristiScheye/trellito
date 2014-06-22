@@ -12,13 +12,13 @@
           <% cards.each(function(card) { %>
             <li class="card">
               <%= card.escape('title') %>
-              <a class="remove-card btn btn-xs" data-id="<%= card.id %>">&times;</a>
+              <a class="remove-card btn btn-xs" data-id="<%= card.escape('id') %>">&times;</a>
             </li>
           <% }) %>
         </ul>
-        <div id='new-card'></div>
+        <div id="new-card-<%= list.escape('id') %>"</div>
       </div>
-      <a id="add-card" class="btn btn-info btn-sm">+ New Card</a>
+      <a id="add-card-<%= list.escape('id') %>" class="add-card btn btn-info btn-sm"><%= buttonText %></a>
     </div>
   </div>
 </div>

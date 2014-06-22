@@ -16,9 +16,12 @@ window.Trellito.Views.NewCardView = Backbone.View.extend({
   },
 
   addCard: function(event) {
+    debugger;
     event.preventDefault();
     var cardAttrs = $(event.target).serializeJSON()['card'];
     cardAttrs.rank = this.list.cards().length + 1;
-    this.list.cards().create(cardAttrs);
+    this.list.cards().create(cardAttrs, {
+      wait: true
+    });
   }
 })

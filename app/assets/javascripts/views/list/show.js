@@ -3,29 +3,40 @@ window.Trellito.Views.BoardListView = Backbone.CompositeView.extend({
 
   initialize: function() {
     this.listenTo(this.model, 'sync', this.render);
-    this.listenTo(this.model.cards(), 'add', this.render);
+    this.listenTo(this.model.cards(), 'sync', this.render);
     this.listenTo(this.model.cards(), 'remove', this.render);
   },
 
   events: {
     'click .remove-list' : 'removeList',
-    'click #add-card' : 'displayCardForm',
-    'click .remove-card' : 'removeCard',
+    'click .add-card' : 'displayCardForm',
+    'click .remove-card' : 'removeCard'
   },
 
   displayCardForm: function () {
-    if (this.subviews('#new-card').length === 0){
+    if (this.subviews('#new-card-' + this.model.id).length === 0){
       var newCardView = new Trellito.Views.NewCardView({
         list: this.model
       });
-      this.addSubview('#new-card', newCardView)
+      this.addSubview('#new-card-' + this.model.id, newCardView)
+      $('#add-card-'+ this.model.id).html('Done')
+    } else {
+      this.removeSubviews('#new-card-' + this.model.id);
+      $('#add-card-' + this.model.id).html('+ New Card')
+    }
+  },
+
+  addCardText: function() {
+    if (this.subviews('#new-card-' + this.model.id).length === 0) {
+      return '+ New Card';
+    } else {
+      return 'Done';
     }
   },
 
   removeList: function(event) {
     this.model.destroy();
   },
-
 
   removeCard: function (event) {
     var cardId = $(event.target).attr('data-id');
@@ -36,7 +47,8 @@ window.Trellito.Views.BoardListView = Backbone.CompositeView.extend({
   render: function() {
     var content = this.template({
       list: this.model,
-      cards: this.model.cards()
+      cards: this.model.cards(),
+      buttonText: this.addCardText()
     })
 
     this.$el.html(content);
