@@ -4,20 +4,26 @@
 
     <h1>Sign In</h1>
 
-    <form action="<%= session_url %>" method="post">
+    <form action="<%= session_url %>" method="post" >
       <%= auth_token_input %>
-      <label>
-        Email<br>
-        <input type="text" name="user[email]">
+      <label>Email
+        <input type="text" name="user[email]" class="form-control">
       </label>
-      <br>
-      <label>
-        Password<br>
-        <input type="password" name="user[password]">
+      <label>Password
+        <input type="password" name="user[password]" class="form-control">
       </label>
       <br>
       <input type="submit" class="btn btn-success" value="Login">
-      <a href="<%= new_user_url %>">New to Trellito?</a>
+    </form>
+
+    <br>
+
+    New to Trellito? <a href="<%= new_user_url %>">Sign Up</a> or
+    <form action="<%= session_url %>" method="post">
+      <%= auth_token_input %>
+      <input type="hidden" name="user[email]" value="guest">
+      <input type="hidden" name="user[password]" value="password">
+      <input type="submit" value="Login as Guest" class="btn btn-warning">
     </form>
   </div>
 </div>
